@@ -13,7 +13,8 @@ RUN apt-get install wget unzip -y
 RUN wget -O /tmp/connair.zip http://www.l3x.de/connair/connair-0.6.11.zip
 
 # unzip connair into /var/www/html
-RUN unzip /tmp/connair.zip -d /tmp/
-RUN rm -rf /var/www/html/*
-RUN mv /tmp/connair-0.6.11/* /var/www/html/
+RUN rm -fr /app
+RUN unzip /tmp/connair.zip -d /app
+RUN mv /app/connair-0.6.11/* /app/
+RUN rmdir /app/connair-0.6.11
 
